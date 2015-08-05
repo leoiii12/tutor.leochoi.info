@@ -1,0 +1,11 @@
+{
+  "name": "TutorRepublicApp",
+  "app_id": "4ec43156",
+  "gulpStartupTasks": [
+    "default"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

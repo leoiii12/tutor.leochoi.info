@@ -1,0 +1,31 @@
+/// <reference path="../www/lib/ionic/scss/variables" />
+
+tutor-surface-box {
+    display: block;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+
+    .university {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .university-subject {
+        font-size: 14px;
+    }
+
+    .area {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .area, .subject {
+        font-size: 11px;
+    }
+
+    img {
+        width: 100%;
+    }
+}

@@ -1,0 +1,65 @@
+﻿<ion-modal-view>
+    <ion-header-bar class="bar-energized">
+        <h1 class="title">Job Details</h1>
+        <button class="button button-clear" ng-click="closeModal()"><i class="icon ion-close-circled"></i></button>
+    </ion-header-bar>
+    <ion-content>
+        <job-details>
+            <div class="title">工作資料</div>
+            <div class="row">
+                <div class="col col-33">編號</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.jobId"></div>
+            </div>
+            <div class="row">
+                <div class="col col-33">科目</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.subject"></div>
+            </div>
+            <div class="row">
+                <div class="col col-33">位置</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.area"></div>
+            </div>
+            <div class="row">
+                <div class="col col-33">預算</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.budget | Budget"></div>
+            </div>
+            <div class="row">
+                <div class="col col-33">剩餘時間</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.remainingTime | RemaingTime"></div>
+            </div>
+
+            <div class="title">學生資料</div>
+            <div class="row">
+                <div class="col col-33">性別</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.studentGender"></div>
+            </div>
+            <div class="row">
+                <div class="col col-33">教育程度</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.studentEducationLevel"></div>
+            </div>
+            <div class="row">
+                <div class="col col-33">人數</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.studentCount"></div>
+            </div>
+
+            <div class="title">要求導師</div>
+            <div class="row">
+                <div class="col col-33">性別</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.requiredGender"></div>
+            </div>
+            <div class="row">
+                <div class="col col-33">最低教育程度</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.requiredEducationLevel"></div>
+            </div>
+
+            <div class="title">上課時間</div>
+            <div class="row">
+                <div class="col col-33">長度</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.duration"></div>
+            </div>
+            <div class="row">
+                <div class="col col-33">堂數</div>
+                <div class="col col-67" ng-bind="selectedJobDetails.weekCount"></div>
+            </div>
+        </job-details>
+    </ion-content>
+</ion-modal-view>

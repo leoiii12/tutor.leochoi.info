@@ -1,0 +1,33 @@
+/// <reference path="../www/lib/ionic/scss/variables" />
+
+form {
+    .disabled-input {
+        background-color: $light;
+    }
+
+    input[disabled] {
+        background-color: transparent;
+    }
+
+    .has-errors {
+        border-bottom: 1px solid $assertive;
+    }
+
+    .errors-container {
+        border: 1px solid #ddd;
+
+        &:last-child {
+            margin-bottom: -1px;
+        }
+
+        > .error {
+            color: #555;
+            padding: 10px 16px;
+            text-transform: uppercase;
+
+            > i {
+                color:  $assertive;
+            }
+        }
+    }
+}

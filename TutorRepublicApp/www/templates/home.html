@@ -1,0 +1,16 @@
+﻿<ion-view view-title="Tutor Republic">
+    <ion-content scroll="false" ng-init="initializeHomeData()">
+        <ion-slide-box delegate-handle="home" slide-tabs-scrollable="false" show-pager="false" ion-slide-tabs="">
+            <ion-slide ion-slide-tab-label="搜尋工作">
+                <ion-scroll class="padding">
+                    <job-surface-box ng-repeat="(key, jobDetails) in jobDetailsInstances track by jobDetails.jobId" collection="jobDetails" ng-click="showJobDetails(key)"></job-surface-box>
+                </ion-scroll>
+            </ion-slide>
+            <ion-slide ion-slide-tab-label="搜尋導師">
+                <ion-scroll class="padding">
+                    <tutor-surface-box ng-repeat="(key, tutorDetails) in tutorDetailsInstances track by tutorDetails.tutorId" collection="tutorDetails" ng-click="showTutorDetails(key)"></tutor-surface-box>
+                </ion-scroll>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

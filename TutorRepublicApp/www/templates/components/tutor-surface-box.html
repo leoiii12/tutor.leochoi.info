@@ -1,0 +1,13 @@
+﻿<div class="row">
+    <div class="col col-25">
+        <img ng-src="./img/{{collection.gender}}.png" />
+    </div>
+    <div class="col col-75">
+        <p class="university" ng-bind="collection.universitySubject[0].university"></p>
+        <p class="university-subject">
+            <span ng-bind="collection.universitySubject[0].subject"></span><span ng-bind="collection.universitySubject[0].level"></span>
+        </p>
+        <div class="area" ng-bind="collection.areas | Areas"></div>
+        <div class="subject" ng-repeat="subject in collection.teachingSubjects" ng-bind="subject.name"></div>
+    </div>
+</div>

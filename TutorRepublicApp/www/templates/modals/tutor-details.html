@@ -1,0 +1,134 @@
+﻿<ion-modal-view>
+    <ion-header-bar class="bar-energized">
+        <h1 class="title">Tutor Details</h1>
+        <button class="button button-clear" ng-click="closeModal()"><i class="icon ion-close-circled"></i></button>
+    </ion-header-bar>
+    <ion-content>
+        <tutor-details>
+            <ion-slide-box delegate-handle="tutor-details" slide-tabs-scrollable="false" show-pager="false" ion-slide-tabs="">
+
+                <ion-slide ion-slide-tab-label="導師資料">
+                    <ion-scroll>
+                        <div class="image-container">
+                            <img ng-src="./img/{{selectedTutorDetails.gender}}.png" />
+                        </div>
+
+                        <div class="title">基本資料</div>
+                        <div class="row">
+                            <div class="col col-33">編號</div>
+                            <div class="col col-67" ng-bind="selectedTutorDetails.tutorId"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">國籍</div>
+                            <div class="col col-67" ng-bind="selectedTutorDetails.nationality"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">年齡</div>
+                            <div class="col col-67" ng-bind="selectedTutorDetails.age"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">教授語言</div>
+                            <div class="col col-67" ng-bind="selectedTutorDetails.teachingLanguage"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">性別</div>
+                            <div class="col col-67" ng-bind="selectedTutorDetails.gender"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">職業</div>
+                            <div class="col col-67" ng-bind="selectedTutorDetails.occupation"></div>
+                        </div>
+
+                        <div class="title">可教地區</div>
+                        <map name="TutorTeachingLocations" center="Hong Kong" zoom="10" map-type-control="false" street-view-control="false" data-tap-disabled="true">
+                            <marker ng-repeat="(key, area) in selectedTutorDetails.areas track by key" position="{{area}}" title="{{area}}" visible="true"></marker>
+                        </map>
+                    </ion-scroll>
+                </ion-slide>
+
+                <ion-slide ion-slide-tab-label="自我介紹">
+                    <ion-scroll>
+                        <div class="large-title">教育程度</div>
+                        <div class="title">大專教育</div>
+                        <div class="row" ng-repeat="(key, value) in selectedTutorDetails.universitySubject track by key">
+                            <div class="col">2014 - 2019 {{value.university}}{{value.subject}}{{value.level}}</div>
+                        </div>
+                        <div class="title">中學教育</div>
+                        <div class="row">
+                            <div class="col">2008 - 2014 中華基督教會銘賢書院 中六畢業</div>
+                        </div>
+
+                        <div class="large-title">受予獎項</div>
+                        <div class="row">
+                            <div class="col col-33">年份</div>
+                            <div class="col col-67" ng-bind="selectedTutorDetails.occupation"></div>
+                        </div>
+                    </ion-scroll>
+                </ion-slide>
+
+                <ion-slide ion-slide-tab-label="科目">
+                    <ion-scroll>
+                        <div class="large-title">小學教育</div>
+                        <div class="title">中國語文</div>
+                        <div class="row">
+                            <div class="col col-33">教學經驗</div>
+                            <div class="col col-67">一年經驗</div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">職業</div>
+                            <div class="col col-67">上門補習/教學 小組教學</div>
+                        </div>
+                        <div class="title">英國語文</div>
+                        <div class="row">
+                            <div class="col col-33">教學經驗</div>
+                            <div class="col col-67">一年經驗</div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">職業</div>
+                            <div class="col col-67">上門補習/教學 小組教學</div>
+                        </div>
+                        <div class="title">數學</div>
+                        <div class="row">
+                            <div class="col col-33">教學經驗</div>
+                            <div class="col col-67">一年經驗</div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">職業</div>
+                            <div class="col col-67">上門補習/教學 小組教學</div>
+                        </div>
+                        <div class="title">視覺藝術</div>
+                        <div class="row">
+                            <div class="col col-33">教學經驗</div>
+                            <div class="col col-67">一年經驗</div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">職業</div>
+                            <div class="col col-67">上門補習/教學 小組教學</div>
+                        </div>
+
+                        <div class="large-title">初中教育</div>
+                        <div class="title">中國語文</div>
+                        <div class="row">
+                            <div class="col col-33">教學經驗</div>
+                            <div class="col col-67">一年經驗</div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">職業</div>
+                            <div class="col col-67">上門補習/教學 小組教學</div>
+                        </div>
+                        <div class="title">英國語文</div>
+                        <div class="row">
+                            <div class="col col-33">教學經驗</div>
+                            <div class="col col-67">一年經驗</div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-33">職業</div>
+                            <div class="col col-67">上門補習/教學 小組教學</div>
+                        </div>
+                    </ion-scroll>
+                </ion-slide>
+
+            </ion-slide-box>
+        </tutor-details>
+    </ion-content>
+</ion-modal-view>

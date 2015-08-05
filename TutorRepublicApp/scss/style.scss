@@ -1,0 +1,62 @@
+﻿/// <reference path="../www/lib/ionic/scss/mixins" />
+
+// Inoic style
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss/ionic";
+
+// Plugin
+@import "sliding-tabs";
+
+// Tutor Republic component
+@import "accordion";
+@import "form";
+@import "introduction-box";
+@import "job-surface-box";
+@import "tutor-surface-box";
+@import "message-box";
+
+job-details, tutor-details {
+
+    .image-container {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .title {
+        display: block;
+        margin: -1px;
+        padding: 8px 16px;
+        border: 1px solid #DDD;
+        font-size: 16px;
+        background-color: $stable;
+        color: #222;
+    }
+
+    .large-title {
+        @extend .title;
+        font-weight: 600;
+        font-size: 24px;
+        text-align: center;
+        background-color: $light;
+    }
+
+    .row {
+        .col-67 {
+            text-align: right;
+        }
+    }
+}
+
+#content-backdrop {
+    position: fixed;
+    top: $bar-height;
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+map {
+    height: 300px;
+}

@@ -1,0 +1,9 @@
+accordion {
+    .card {
+        .item.item-divider {
+            > .icon {
+                font-size: 1em;
+            }
+        }
+    }
+}

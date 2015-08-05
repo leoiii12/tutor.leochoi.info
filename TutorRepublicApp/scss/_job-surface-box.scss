@@ -1,0 +1,27 @@
+/// <reference path="../www/lib/ionic/scss/variables" />
+
+$premium-border-width: 2px;
+
+job-surface-box {
+    display: block;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    padding: 0 $premium-border-width;
+
+    &.premium{
+        border-left: $premium-border-width solid $calm;
+        border-right: $premium-border-width solid $calm;
+        padding: 0;
+    }
+
+    .row {
+        .col:last-child {
+            text-align: right;
+        }
+    }
+
+    .basic-description {
+        font-size: 20px;
+    }
+}

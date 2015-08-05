@@ -1,0 +1,8 @@
+﻿<div class="row">
+    <div class="col col-67 basic-description"><span ng-bind="collection.studentEducationLevel"></span><span ng-bind="collection.subject"></span></div>
+    <div class="col col-33"><div ng-bind="collection.remainingTime | RemaingTime"></div></div>
+</div>
+<div class="row">
+    <div class="col col-25"><span ng-bind="collection.area"></span></div>
+    <div class="col col-75"><span ng-bind="collection.requiredEducationLevel | TutorEducationLevel"></span><span ng-bind="collection.requiredGender | TutorGender"></span></div>
+</div>

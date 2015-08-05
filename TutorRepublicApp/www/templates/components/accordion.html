@@ -1,0 +1,9 @@
+﻿<div class="card" ng-repeat="item in collection">
+    <div class="item item-divider item-icon-right" ng-click="item.isOpen = !item.isOpen">
+        {{item.header}}
+        <i class="icon" ng-class="{'ion-chevron-down': item.isOpen, 'ion-chevron-right': !item.isOpen}"></i>
+    </div>
+    <div class="item item-text-wrap" ng-show="item.isOpen">
+        {{item.content}}
+    </div>
+</div>

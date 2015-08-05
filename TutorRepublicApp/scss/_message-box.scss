@@ -1,0 +1,21 @@
+﻿/// <reference path="../www/lib/ionic/scss/variables" />
+
+$message-box-border-top-width: 2px;
+
+error-message-box {
+    .card {
+        .item.item-divider {
+            border-top: $message-box-border-top-width solid $assertive;
+            color: $assertive;
+        }
+    }
+}
+
+success-message-box {
+    .card {
+        .item.item-divider {
+            border-top: $message-box-border-top-width solid $balanced;
+            color: $balanced;
+        }
+    }
+}

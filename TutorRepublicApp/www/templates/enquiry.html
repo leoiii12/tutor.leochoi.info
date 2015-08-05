@@ -1,0 +1,53 @@
+﻿<ion-view title="Enquiry">
+    <ion-content class="padding">
+        <form name="form" novalidate="">
+            <div class="list list-inset">
+                <!-- Topic -->
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : form.topic.$invalid && form.topic.$dirty}">
+                    <span class="input-label">主題</span>
+                    <input type="text" name="topic" ng-model="feedback.topic" ng-minlength="8" ng-maxlength="20" ng-required="true">
+                </label>
+                <div class="errors-container" ng-show="form.topic.$dirty && form.topic.$invalid" ng-messages="form.topic.$error">
+                    <div class="error" ng-message="required">
+                        <i class="icon ion-information-circled"></i>&nbsp;This field is required.
+                    </div>
+                    <div class="error" ng-message="minlength">
+                        <i class="icon ion-information-circled"></i>&nbsp;The minimun length of this field is 8 characters.
+                    </div>
+                    <div class="error" ng-message="maxlength">
+                        <i class="icon ion-information-circled"></i>&nbsp;The maximun length of this field is 20 characters.
+                    </div>
+                </div>
+                <!-- Email -->
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : form.email.$invalid && form.email.$dirty}">
+                    <span class="input-label">電郵</span>
+                    <input type="email" name="email" ng-model="feedback.email" ng-required="true">
+                </label>
+                <div class="errors-container" ng-show="form.email.$dirty && form.email.$invalid" ng-messages="form.email.$error">
+                    <div class="error" ng-message="required">
+                        <i class="icon ion-information-circled"></i>&nbsp;This field is required.
+                    </div>
+                    <div class="error" ng-message="email">
+                        <i class="icon ion-information-circled"></i>&nbsp;Your input is not a valid email.
+                    </div>
+                </div>
+                <!-- Topic -->
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : form.content.$invalid && form.content.$dirty}">
+                    <span class="input-label">內容</span>
+                    <textarea name="content" ng-model="feedback.content" ng-maxlength="500" ng-required="true"></textarea>
+                </label>
+                <div class="errors-container" ng-show="form.content.$dirty && form.content.$invalid" ng-messages="form.content.$error">
+                    <div class="error" ng-message="required">
+                        <i class="icon ion-information-circled"></i>&nbsp;This field is required.
+                    </div>
+                    <div class="error" ng-message="maxlength">
+                        <i class="icon ion-information-circled"></i>&nbsp;The maximun length of this field is 500 characters.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="button button-block button-positive" ng-disabled="form.$invalid">Login</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

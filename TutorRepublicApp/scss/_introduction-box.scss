@@ -1,0 +1,14 @@
+/// <reference path="../www/lib/ionic/scss/variables" />
+
+introduction-box {
+    display: block;
+    text-align: center;
+
+    .image-container {
+        text-align: center;
+
+        img {
+            width: 150px;
+        }
+    }
+}

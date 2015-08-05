@@ -1,0 +1,10 @@
+﻿<ion-view view-title="Component">
+    <ion-content class="padding" ng-init="initializeCompoinentData()">
+        <remind-message-box data-messages="['You should login.']"></remind-message-box>
+        <error-message-box data-messages="['You should login.']"></error-message-box>
+        <success-message-box data-messages="['You should login.']"></success-message-box>
+        <accordion data-ng-init="initializeIntroductionAccordion()" data-collection="introductionCollection"></accordion>
+        <a href="#" data-ng-click="remind()">Remind Alert</a><br />
+        <a href="#" data-ng-click="confirm()">Confirm Alert</a><br />
+    </ion-content>
+</ion-view>
