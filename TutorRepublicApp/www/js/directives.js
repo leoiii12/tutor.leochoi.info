@@ -163,6 +163,9 @@ function ($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScrol
                 $scope.tabLabels.push(tabLabel);
             };
 
+            this.getHeight = function () {
+                return $element[0].parentElement.clientHeight - 48 -44;
+            };
 
             $timeout(function () {
                 slider.load();
@@ -172,7 +175,7 @@ function ($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScrol
         template: '<div class="slider">' + '<div class="slider-slides" ng-transclude>' + '</div>' + '</div>',
         link: function ($scope, $element, $attr) {
             var childScope = $scope.$new();
-            pager = angular.element('<sliding-tabs-selector></sliding-tabs-selector>');
+            var pager = angular.element('<sliding-tabs-selector></sliding-tabs-selector>');
             $element.prepend(pager);
             pager = $compile(pager)(childScope);
         }
@@ -183,9 +186,12 @@ function ($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScrol
         restrict: 'E',
         require: '^slidingTabs',
         scope: false,
+        transclude: true,
+        template: '<ion-scroll style="height: {{containerHeight}}px" class="padding"><div ng-transclude></div></ion-scroll>',
         link: function ($scope, $element, $attrs, slidingTabs) {
             $element.addClass('slider-slide');
             slidingTabs.addTabLabel($attrs.slidingTabsPageLabel);
+            $scope.containerHeight = slidingTabs.getHeight();
         }
     };
 })
