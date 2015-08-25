@@ -7,7 +7,7 @@
   '$ionicScrollDelegate',
   '$ionicSideMenuDelegate',
 function ($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScrollDelegate, $ionicSideMenuDelegate) {
-    return {      
+    return {
         restrict: 'E',
         replace: true,
         transclude: true,
@@ -18,6 +18,7 @@ function ($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScrol
         },
         controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
             var _this = this;
+            $scope.tabLabels = [];
 
             // Disable sidemenu
             $ionicSideMenuDelegate.canDragContent(false);
@@ -65,18 +66,6 @@ function ($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScrol
                 }
             });
 
-            $scope.$on('slideBox.nextSlide', function () {
-                slider.next();
-            });
-
-            $scope.$on('slideBox.prevSlide', function () {
-                slider.prev();
-            });
-
-            $scope.$on('slideBox.setSlide', function (e, index) {
-                slider.slide(index);
-            });
-
             var deregisterInstance = $ionicSlideBoxDelegate._registerInstance(
               slider, $attrs.delegateHandle, function () {
                   return $ionicHistory.isActiveScope($scope);
@@ -88,13 +77,27 @@ function ($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScrol
                 slider.kill();
             });
 
+            this.selectTab = function (index) {
+                slider.slide(index);
+            };
+
+            this.addTabLabel = function (tabLabel) {
+                $scope.tabLabels.push(tabLabel);
+            };
+
+
             $timeout(function () {
                 slider.load();
                 $scope.tabCount = slider.count;
-                $scope.tabLabels = [];
             });
         }],
-        template: '<div class="slider"><div class="slider-slides" ng-transclude></div></div>'
+        template: '<div class="slider">' + '<div class="slider-slides" ng-transclude>' + '</div>' + '</div>',
+        link: function ($scope, $element, $attr) {
+            var childScope = $scope.$new();
+            pager = angular.element('<sliding-tabs-selector></sliding-tabs-selector>');
+            $element.prepend(pager);
+            pager = $compile(pager)(childScope);
+        }
     };
 }])
 .directive('slidingTabsPage', function () {
@@ -102,12 +105,38 @@ function ($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScrol
         restrict: 'E',
         require: '^slidingTabs',
         scope: false,
-        link: function ($scope, $element, $attrs, $parent) {
+        link: function ($scope, $element, $attrs, slidingTabs) {
             $element.addClass('slider-slide');
-            console.log($scope);
-            console.log($attrs.slidingTabsPageLabel);
-            console.log($parent);
-            // $parent.tabLabels.push($attrs.slidingTabsPageLabel);
+            slidingTabs.addTabLabel($attrs.slidingTabsPageLabel);
         }
+    };
+})
+.directive('slidingTabsSelector', function () {
+    return {
+        restrict: 'E',
+        require: '^slidingTabs',
+        template: '<sliding-tabs-label ng-repeat="(key, tabLabel) in tabLabels track by key" ng-bind="tabLabel" ng-click="selectTab(key)">' + '</sliding-tabs-label>',
+        link: function ($scope, $element, $attr, slidingTabs) {
+            var selectPage = function (index) {
+                var children = $element[0].children;
+                var length = children.length;
+                for (var i = 0; i < length; i++) {
+                    if (i == index) {
+                        children[i].classList.add('active');
+                    } else {
+                        children[i].classList.remove('active');
+                    }
+                }
+            };
+
+            $scope.selectTab = function (index) {
+                slidingTabs.selectTab(index);
+            };
+
+            $scope.$watch('currentSlide', function (v) {
+                selectPage(v);
+            });
+        }
+
     };
 });
