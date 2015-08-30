@@ -101,4 +101,8 @@
             };
         });
     };
+
+    $scope.onPhotoChange = function (URI) {
+        console.log('Callback:' + URI);
+    };
 });

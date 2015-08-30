@@ -1,5 +1,7 @@
 ﻿<ion-view view-title="Component">
     <ion-content class="padding" ng-init="initializeCompoinentData()">
+        <photo-upload format="JPEG" target-width="300" target-height="300" quality="90" album-label="From Album" capture-label="From Capturing" on-photo-change="onPhotoChange"></photo-upload>
+
         <remind-message-box data-messages="['You should login.']"></remind-message-box>
         <error-message-box data-messages="['You should login.']"></error-message-box>
         <success-message-box data-messages="['You should login.']"></success-message-box>

@@ -148,6 +148,10 @@ trControllers.controller('HomeCtrl', function ($scope, $ionicModal, PopupService
             };
         });
     };
+
+    $scope.onPhotoChange = function (URI) {
+        console.log('Callback:' + URI);
+    };
 });
 trControllers.controller('LoginCtrl', function ($scope) {
 
