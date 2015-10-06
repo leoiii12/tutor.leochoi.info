@@ -1,10 +1,10 @@
 ﻿<ion-view view-title="Tutor Republic">
     <ion-content scroll="false" ng-init="initializeHomeData()">
         <sliding-tabs delegate-handle="home">
-            <sliding-tabs-page sliding-tabs-page-label="搜尋工作">
+            <sliding-tabs-page sliding-tabs-page-label="搜尋工作" is-padding="true">
                 <job-surface-box ng-repeat="(key, jobDetails) in jobDetailsInstances track by jobDetails.jobId" collection="jobDetails" ng-click="showJobDetails(key)"></job-surface-box>
             </sliding-tabs-page>
-            <sliding-tabs-page sliding-tabs-page-label="搜尋導師">
+            <sliding-tabs-page sliding-tabs-page-label="搜尋導師" is-padding="true">
                 <tutor-surface-box ng-repeat="(key, tutorDetails) in tutorDetailsInstances track by tutorDetails.tutorId" collection="tutorDetails" ng-click="showTutorDetails(key)"></tutor-surface-box>
             </sliding-tabs-page>
         </sliding-tabs>

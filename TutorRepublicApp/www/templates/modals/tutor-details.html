@@ -3,11 +3,11 @@
         <h1 class="title">Tutor Details</h1>
         <button class="button button-clear" ng-click="closeModal()"><i class="icon ion-close-circled"></i></button>
     </ion-header-bar>
-    <ion-content>
+    <ion-content scroll="false">
         <tutor-details>
             <sliding-tabs delegate-handle="tutor-details">
 
-                <sliding-tabs-page sliding-tabs-page-label="導師資料">
+                <sliding-tabs-page sliding-tabs-page-label="導師資料" is-padding="false">
                     <div class="image-container">
                         <img ng-src="./img/{{selectedTutorDetails.gender}}.png" />
                     </div>
@@ -44,7 +44,7 @@
                     </map>
                 </sliding-tabs-page>
 
-                <sliding-tabs-page sliding-tabs-page-label="自我介紹">
+                <sliding-tabs-page sliding-tabs-page-label="自我介紹" is-padding="false">
                     <div class="large-title">教育程度</div>
                     <div class="title">大專教育</div>
                     <div class="row" ng-repeat="(key, value) in selectedTutorDetails.universitySubject track by key">
@@ -62,7 +62,7 @@
                     </div>
                 </sliding-tabs-page>
 
-                <sliding-tabs-page sliding-tabs-page-label="科目">
+                <sliding-tabs-page sliding-tabs-page-label="科目" is-padding="false">
                     <div class="large-title">小學教育</div>
                     <div class="title">中國語文</div>
                     <div class="row">

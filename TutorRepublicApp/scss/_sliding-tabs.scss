@@ -5,8 +5,10 @@ $slidingTabsHeight: 48px;
 $slidingTabsBorder: 1px;
 
 .slider {
+    height: 100%;
 
     sliding-tabs-selector {
+        display: block;
         @include display-flex();
         z-index: 10;
         height: $slidingTabsHeight;
