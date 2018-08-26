@@ -16,6 +16,7 @@ var paths = {
 };
 
 gulp.task('default', ['watch', 'sass', 'controllers', 'directives', 'services', 'filters']);
+gulp.task('build', ['sass', 'controllers', 'directives', 'services', 'filters']);
 
 gulp.task('sass', function (done) {
     gulp.src(paths.sass)
